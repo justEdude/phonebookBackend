@@ -44,6 +44,7 @@ const requestLogger = (request, response, next) => {
 
 */
 app.use(express.json())
+app.use(express.static(`dist`))
 /* so morgan was logging a line i didn't recognize, after googling i learned from the search gemini,
 it was the default get performed by chrome devtools 
 decided to use the skip method mentioned in the documentation to, well, skip it, gemini helped with how to specify the url object
