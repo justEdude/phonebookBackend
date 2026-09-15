@@ -1,0 +1,42 @@
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "testing valid post requests",
+    "number": "3333-3333"
+}
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"",
+    "number": "invalid post testing"
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"invalid post testing",
+    "number": ""
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"",
+    "number": ""
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"Arto Hellas",
+    "number": "9999-9999"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "phonebook_backend",
+  "version": "0.0.1",
+  "description": "exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "echo \"error: no test command added\" && exit 1"
+  },
+  "author": "Danton",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.12.0"
+  }
+}
