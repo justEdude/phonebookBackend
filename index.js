@@ -130,6 +130,7 @@ const unknownEndpoint = (request, response) => {
 app.use(unknownEndpoint)
 
 //port being listened to
-const PORT = (3001)
-app.listen(PORT)
-console.log(`Server running on port ${PORT}`)
+const PORT = process.env.PORT || 3001
+app.listen(PORT, ()=> {
+console.log(`server running on port ${PORT}`);
+})
