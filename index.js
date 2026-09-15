@@ -3,8 +3,8 @@ console.log("run works")
 const express = require('express')
 const morgan = require('morgan')
 const app = express()
-//notes content
-let notes = [
+//contacts content
+let contacts = [
     { 
       "id": "1",
       "name": "Arto Hellas", 
@@ -58,16 +58,16 @@ app.use(morgan(`:method :url :status :res[content-length] - :response-time ms :d
 }))
 //app.use(requestLogger)
 
-//gets notes
+//gets contacts
 app.get('/api/persons', (request, response)=>{
-  response.json(notes)
+  response.json(contacts)
 })
 
 app.get('/api/persons/:id',(request, response)=>{
   const id = request.params.id
-  const note = notes.find(n => n.id === id)
-  if(note){
-  response.json(note)
+  const contact = contacts.find(n => n.id === id)
+  if(contact){
+  response.json(contact)
   }else{
     response.status(404).end()
   }
@@ -75,7 +75,7 @@ app.get('/api/persons/:id',(request, response)=>{
 
 app.delete('/api/persons/:id',(request, response)=>{
   const id = request.params.id
-  notes = notes.filter(n => n.id !== id)
+  contacts = contacts.filter(n => n.id !== id)
  response.status(204).end()
 })
 
@@ -85,7 +85,7 @@ app.get('/info', (request, response)=>{
   
   // for some reason the rest client extension will return the <br/> in the text instead of just using it to skip the line, 
   // however opening the link in the browser shows it skipping the line as intended
-  response.send(`the phonebook has info for ${notes.length} people <br/>
+  response.send(`the phonebook has info for ${contacts.length} people <br/>
     ${new Date().toLocaleString('en-US', timeZone)}
     ${timeZone}`)
   
@@ -106,17 +106,17 @@ if(!body.name || !body.number){
     error: "could not add new contact, missing name or number fields"
   })
 }else{
-  const uniqueName =  notes.find(n=> n.name === body.name)
+  const uniqueName =  contacts.find(n=> n.name === body.name)
   if(!uniqueName){
     const ToBeAdded = {
       id : randomID(),
       name : body.name,
       number : body.number,
     }
-    notes = notes.concat(ToBeAdded)
+    contacts = contacts.concat(ToBeAdded)
     response.json(ToBeAdded)
   }else{
-    response.statusMessage = `name already exists in the notes list, name needs to be unique`
+    response.statusMessage = `name already exists in the contacts list, name needs to be unique`
   return response.status(400).json({
     error: "name must be unique"
   })
