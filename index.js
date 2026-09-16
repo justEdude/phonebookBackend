@@ -79,6 +79,7 @@ app.get('/api/persons/:id',(request, response)=>{
 app.delete('/api/persons/:id',(request, response)=>{
   const id = request.params.id
   contacts = contacts.filter(n => n.id !== id)
+  console.log(contacts)
  response.status(204).end()
 })
 
