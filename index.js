@@ -59,10 +59,6 @@ app.use(morgan(`:method :url :status :res[content-length] - :response-time ms :d
 }))
 //app.use(requestLogger)
 
-app.get('/', (request, response)=>{
-  response.send(`<h1>hello world</h1>`)
-})
-
 //gets contacts
 app.get('/api/persons', (request, response)=>{
   response.json(contacts)
