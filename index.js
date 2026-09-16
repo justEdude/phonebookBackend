@@ -118,6 +118,7 @@ if(!body.name || !body.number){
       number : body.number,
     }
     contacts = contacts.concat(ToBeAdded)
+    console.log(contacts)
     response.json(ToBeAdded)
   }else{
     response.statusMessage = `name already exists in the contacts list, name needs to be unique`
