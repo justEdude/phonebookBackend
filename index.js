@@ -52,8 +52,9 @@ since I was still confused after reading the documentation, source for the fix w
 */
 
 morgan.token(`data`, (req, res)=>{return JSON.stringify(req.body)})
+morgan.token(`status`, (req, res)=>{return res.statusMessage})
 
-app.use(morgan(`:method :url :status :res[content-length] - :response-time ms :data`,{
+app.use(morgan(`:method :url :status :res[content-length] - :response-time ms :data :status`,{
   skip: (req, res) => {return req.url.includes(`/.well-known/appspecific/com.chrome.devtools.json`)}
 }))
 //app.use(requestLogger)
