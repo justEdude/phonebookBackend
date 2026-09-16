@@ -60,7 +60,7 @@ app.use(morgan(`:method :url :status :res[content-length] - :response-time ms :d
 //app.use(requestLogger)
 
 //gets contacts
-app.get('/api/persons', (request, response)=>{
+app.get('/', (request, response)=>{
   response.json(contacts)
 })
 //finds a specific contact
