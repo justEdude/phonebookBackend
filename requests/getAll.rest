@@ -1,10 +1,10 @@
-GET http://localhost:3001/api/persons
+GET https://phonebookbackend-3k7v.onrender.com/api/persons
 
 ###
-GET http://localhost:3001/info
+GET https://phonebookbackend-3k7v.onrender.com/info
 
 ###
-GET http://localhost:3001/api/persons/5
+GET https://phonebookbackend-3k7v.onrender.com/api/persons/3
 
 
 
