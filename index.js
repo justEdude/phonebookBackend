@@ -113,7 +113,7 @@ if(!body.name || !body.number){
   const uniqueName =  contacts.find(n=> n.name === body.name)
   if(!uniqueName){
     const ToBeAdded = {
-      id : randomID(),
+      id : `${randomID()}`,
       name : body.name,
       number : body.number,
     }
