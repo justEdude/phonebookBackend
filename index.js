@@ -62,7 +62,7 @@ app.use(morgan(`:method :url :status :res[content-length] - :response-time ms :d
 app.get('/api/persons', (request, response)=>{
   response.json(contacts)
 })
-
+//finds a specific contact
 app.get('/api/persons/:id',(request, response)=>{
   const id = request.params.id
   const contact = contacts.find(n => n.id === id)
@@ -73,6 +73,7 @@ app.get('/api/persons/:id',(request, response)=>{
   }
 })
 
+//deletes contacts
 app.delete('/api/persons/:id',(request, response)=>{
   const id = request.params.id
   contacts = contacts.filter(n => n.id !== id)
@@ -123,7 +124,7 @@ if(!body.name || !body.number){
   }
 }
 })
-
+//handles unknown endpoints
 const unknownEndpoint = (request, response) => {
   response.status(404).send({error: `unknown endpoint`})
 }
