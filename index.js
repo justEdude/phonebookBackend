@@ -96,10 +96,7 @@ app.get('/info', (request, response)=>{
 })
 
 //googled how to scale math.random and how many numbers in a given range, answer was given by search gemini
-const randomID = ()=> {
-  let newID =  Math.floor(Math.random() * 10000)
-  return newID
-}
+const randomID = ()=> String(Math.floor(Math.random() * 10000))
 
 //handles post
 app.post('/api/persons', (request, response)=>{
@@ -113,7 +110,7 @@ if(!body.name || !body.number){
   const uniqueName =  contacts.find(n=> n.name === body.name)
   if(!uniqueName){
     const ToBeAdded = {
-      id : `${randomID()}`,
+      id : randomID(),
       name : body.name,
       number : body.number,
     }
