@@ -114,6 +114,7 @@ if(!body.name || !body.number){
       name : body.name,
       number : body.number,
     }
+    
     contacts = contacts.concat(ToBeAdded)
     console.log(contacts)
     response.json(ToBeAdded)
