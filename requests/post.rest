@@ -40,3 +40,36 @@ Content-Type: application/json
     "name":"Arto Hellas",
     "number": "9999-9999"
 }
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "VS code client rest is a pretty handy tool",
+    "number": "9999-9999"
+}
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Ensure that everything still works",
+    "number": "3123-9876"
+}
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "first contact",
+    "number": "3123-9876"
+}
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name":"",
+    "number": ""
+}

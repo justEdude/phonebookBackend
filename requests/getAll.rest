@@ -6,6 +6,19 @@ GET https://phonebookbackend-3k7v.onrender.com/info
 ###
 GET https://phonebookbackend-3k7v.onrender.com/api/persons/3
 
+###
+GET http://localhost:3001/api/persons
+
+###
+GET http://localhost:3001/api/persons/6af33a72036dd4c5737c3114
+
+###
+GET http://localhost:3001/api/persons/3
+
+###
+GET http://localhost:3001/info
+
+
 
 
 
