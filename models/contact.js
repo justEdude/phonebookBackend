@@ -1,4 +1,4 @@
-require(`dotenv`).config()
+require('dotenv').config()
 const mongoose = require('mongoose')
 /*
 const BadArgumentErrorFunction = ()=>{
@@ -7,31 +7,31 @@ const BadArgumentErrorFunction = ()=>{
 }
 */
 const url = process.env.MONGODB_URI
-mongoose.set(`strictQuery`, false)
-mongoose.connect(url, {family: 4})
-.then(result=>{
-console.log(`connected to mongoDB`)
-}).catch(error=>{
-    console.log(`error connecting to mongo`, error.message)
-})
+mongoose.set('strictQuery', false)
+mongoose.connect(url, { family: 4 })
+  .then(() => {
+    console.log('connected to mongoDB')
+  }).catch(error => {
+    console.log('error connecting to mongo', error.message)
+  })
 
 const ContactSchema = new mongoose.Schema({
-    name:{
-        type: String,
-        minLength: [3, `field needs to have at least 3 characters`],
-        required: [true, `field is required to be filled out`]
-    },
-    number:{
-        type: String,
-        validate: {
-            validator: (n)=>{
-            return /\d{2,3}-\d{6}/.test(n)
-            },
-            message: props => `${props.value} is not a valid phone number, 
+  name:{
+    type: String,
+    minLength: [3, 'field needs to have at least 3 characters'],
+    required: [true, 'field is required to be filled out']
+  },
+  number:{
+    type: String,
+    validate: {
+      validator: (n) => {
+        return /\d{2,3}-\d{6}/.test(n)
+      },
+      message: props => `${props.value} is not a valid phone number, 
             phone numbers must have 2-3 digits followed by a - and then a minimum of 6 digits`
-        },
-        required: [true, `field is required to be filled out`]
-    }
+    },
+    required: [true, 'field is required to be filled out']
+  }
 })
 /*
 const addedContact = new Contact({
@@ -64,6 +64,6 @@ ContactSchema.set('toJSON', {
     delete returnedObject.__v
   }
 })
-const Contact = mongoose.model(`Contact`, ContactSchema)
+const Contact = mongoose.model('Contact', ContactSchema)
 
 module.exports = Contact

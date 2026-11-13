@@ -1,13 +1,13 @@
- require(`dotenv`).config()
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 const url = process.env.MONGODB_URI
-mongoose.set(`strictQuery`, false)
-mongoose.connect(url, {family: 4})
+mongoose.set('strictQuery', false)
+mongoose.connect(url, { family: 4 })
 
 const DateSchema = new mongoose.Schema({
-    info:String,
-    Date:String,
+  info:String,
+  Date:String,
 })
 
 DateSchema.set('toJSON', {
@@ -17,8 +17,7 @@ DateSchema.set('toJSON', {
   }
 })
 
-const DateModel = mongoose.model(`DateModel`, DateSchema)
+const DateModel = mongoose.model('DateModel', DateSchema)
 
 module.exports = DateModel
 
- 
