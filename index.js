@@ -99,7 +99,7 @@ app.put('/api/persons/:id', (request, response, next) => {
 
   Contact.findById(request.params.id).then(addedContact => {
     if(!addedContact){
-      return response.status(400).json({
+      return response.status(404).json({
         error: 'given user does not exist'
       })
     }
